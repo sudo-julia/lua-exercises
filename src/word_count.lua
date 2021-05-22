@@ -1,24 +1,18 @@
-local function get_input()
-    io.write("Provide some input: ")
-    local input = io.read()
-    return input
-end
+local get_arg = require("utils").get_arg
+local string_to_table = require("utils").string_to_table
 
 local function get_str_length(mystring)
-    -- split a string at its spaces, insert words into a table and return the length
-    local t = {}
-    for str in mystring:gmatch("%S+") do table.insert(t, str) end
-    return #t
+  -- split a string at its spaces, insert words into a table and return the length
+  local t = string_to_table(mystring)
+  return #t
 end
 
-local user_input
-if #arg == 0 then
-    user_input = get_input()
-else
-    user_input = arg[1]
+local function main()
+  local user_input = get_arg("Give a string: ")
+
+  local input_len = get_str_length(user_input)
+
+  io.write('"' .. user_input .. '" contains ' .. input_len .. ' words.\n')
 end
 
-local input_len = get_str_length(user_input)
-
-io.write('Your string "' .. user_input .. '" contains ' .. input_len ..
-             ' words.\n')
+main()
