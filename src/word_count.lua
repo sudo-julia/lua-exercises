@@ -1,9 +1,9 @@
 local get_arg = require("utils").get_arg
-local string_to_table = require("utils").string_to_table
+local split = require("utils").split
 
 local function get_str_length(mystring)
   -- split a string at its spaces, insert words into a table and return the length
-  local t = string_to_table(mystring)
+  local t = split(mystring)
   return #t
 end
 

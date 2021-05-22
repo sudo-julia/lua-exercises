@@ -18,10 +18,12 @@ function M.get_arg(prompt)
   return user_input
 end
 
-function M.string_to_table(in_string)
+-- TODO add options to split by different delimiters
+function M.split(str, separator)
   -- split a string at its spaces, return a table with separate words
+  separator = "%S+" or separator
   local t = {}
-  for str in in_string:gmatch("%S+") do table.insert(t, str) end
+  for s in str:gmatch(separator) do table.insert(t, s) end
   return t
 end
 
