@@ -1,15 +1,4 @@
-local function get_num()
-  io.write("Enter a number: ")
-  local num = io.read()
-  num = tonumber(num)
-  if num then return num end
-  repeat
-    io.write("Please enter a valid number: ")
-    num = io.read()
-    num = tonumber(num)
-  until (num)
-  return num
-end
+local get_num = require("utils").get_num
 
 local function even_odd(num)
   local val = "even"
@@ -18,7 +7,7 @@ local function even_odd(num)
 end
 
 local function main()
-  local number = get_num()
+  local number = get_num("Enter a number: ")
 
   local val = even_odd(number)
 
