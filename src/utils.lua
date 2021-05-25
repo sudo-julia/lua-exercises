@@ -27,6 +27,11 @@ function M.get_num(prompt)
   return num
 end
 
+function M.round(n)
+  -- round a number up or down based off its value
+  return n % 1 >= 0.5 and math.ceil(n) or math.floor(n)
+end
+
 function M.split(str, separator)
   -- split a string at its spaces, return a table with separate words
   separator = separator or "%S+"

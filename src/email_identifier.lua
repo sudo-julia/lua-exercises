@@ -13,9 +13,9 @@ local function get_domain(email)
   -- removing values in this manner leaves the values with incorrect key nums
   for i = 1, del_to do t[i] = nil end
   -- meaning that we have to copy all the values to a new table to concatenate
-  local new = {}
-  for _, v in pairs(t) do table.insert(new, v) end
-  return table.concat(new)
+  local fresh_table = {}
+  for _, v in pairs(t) do table.insert(fresh_table, v) end
+  return table.concat(fresh_table)
 end
 
 local function main()
